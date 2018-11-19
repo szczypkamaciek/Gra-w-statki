@@ -14,11 +14,15 @@ var model = {
       var ship = this.ships[i];
       var locations = ship.locations;         // ta i następna linijke mozna skrocic jako: var index = ship.locations.indexOf(guess)
       var index = locations.indexOf(guess);
-      if (index >= 0){
+      if (ship.hits[index] === "hit") {
+          view.displayMessage("Już wcześniej trafiłeś to pole");
+          return true;
+      } else if (index >= 0){
         ship.hits[index] = "hit";
         view.displayHit(guess);
         view.displayMessage("Trafiony!");
-        if (this.isSunk(ship)){
+        
+          if (this.isSunk(ship)){
           view.displayMessage("Zatopiłeś okręt!");
           this.shipsSunk++;
         }
@@ -28,16 +32,16 @@ var model = {
     view.displayMiss(guess);
     view.displayMessage("Spudłowałeś.");
     return false;
-  },
+    },
   
     isSunk: function(ship){
-    for (var i = 0; i < this.shipLength; i++){
-      if (ship.hits[i] !== "hit"){
-        return false;
-      }
-      return true;
-    }
-  },
+        for (var i = 0; i < this.shipLength; i++){
+            if (ship.hits[i] !== "hit"){
+            return false;
+            }
+        return true;
+        }
+    },
    
     generateShipsLocations: function(){
         var locations;
