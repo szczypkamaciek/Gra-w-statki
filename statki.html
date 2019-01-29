@@ -3,53 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <title>Statki</title>
-    <style>
-      body {
-        background-color: silver;
-      }
-
-      div#board {
-        position: relative;
-        width: 850px;
-        height: 717px;
-        margin: auto;
-        background: url("board.jpg") no-repeat;
-      }
-      div#messageArea {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        color: rgb(219, 66, 39);
-      }
-      table {
-        position: absolute;
-        left: 130px;
-        top: 73px;
-        border-spacing: 0px;
-      }
-      td {
-        width: 71px;
-        height: 71px;
-      }
-      form {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        padding: 15px;
-        background-color: rgb(170, 175, 135);
-      }
-      form input {
-        background-color: darkkhaki;
-        border-color: rgb(136, 139, 113);
-        font-size: 1em;
-      }
-      .hit {
-        background: url("ship.png") no-repeat center center;
-      }
-      .miss {
-        background: url("miss.png") no-repeat center center;
-      }
-      </style>
+    <link type="text/css" rel="stylesheet" href="statki.css">
   </head>
   <body>
     <div id="board">
@@ -78,7 +32,7 @@
         </tr>
       </table>
       <form>
-        <input type="text" id="guessInput" placeholder="A0">
+        <input type="text" id="guessInput" placeholder="a0">
         <input type="button" id="fireButton" value="Ognia!">
       </form>
     </div>

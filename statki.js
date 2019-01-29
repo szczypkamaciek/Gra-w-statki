@@ -1,4 +1,3 @@
-
 var model = {
   boardSize: 7,
   numShips: 3,
@@ -39,8 +38,8 @@ var model = {
             if (ship.hits[i] !== "hit"){
             return false;
             }
-        return true;
         }
+		return true;
     },
    
     generateShipsLocations: function(){
@@ -51,6 +50,8 @@ var model = {
             } while (this.collision(locations));
             this.ships[i].locations = locations;
             }
+			console.log("Tablica okrętów: ");
+			console.log(this.ships);
         },
     
     generateShip: function(){
@@ -117,11 +118,11 @@ var controller = {
 };
 
 function parseGuess(guess){
-  var alfabet = ["A", "B", "C", "D", "E", "F", "G"];
+  var alfabet = ["a", "b", "c", "d", "e", "f", "g"];
   if (guess === null || guess.length !== 2){
     alert("Proszę wpisac literę i cyfrę.");
   } else {
-    firstChar = guess.charAt(0);
+    var firstChar = guess.charAt(0);
     var row = alfabet.indexOf(firstChar);
     var column = guess.charAt(1);
 
@@ -137,8 +138,8 @@ function parseGuess(guess){
 }
 
 function init(){
-  var fireButton = document.getElementById("fireButton");
-  fireButton.onclick = handleFireButton;
+  	var fireButton = document.getElementById("fireButton");
+  	fireButton.onclick = handleFireButton;
     var guessInput = document.getElementById("guessInput");
     guessInput.onkeypress = handleKeyPress;
     
